@@ -1,0 +1,1 @@
+# Estimaci-n-nivel-de-estr-s-basada-en-GSR
