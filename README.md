@@ -1,1 +1,1 @@
-# Estimaci-n-nivel-de-estr-s-basada-en-GSR
+# Estimacion-nivel-de-estres-basada-en-GSR
