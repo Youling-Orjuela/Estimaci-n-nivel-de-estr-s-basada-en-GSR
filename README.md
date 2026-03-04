@@ -1,4 +1,4 @@
-# Estimacion-nivel-de-estres-basada-en-GSR
+# Estimación del nivel de estres basada en GSR (Respuesta Galvanica de la Piel)
 ## Introducción
 ## Preparación de la práctica
 ### Efectos de la corriente
