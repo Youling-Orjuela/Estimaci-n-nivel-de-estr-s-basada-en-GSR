@@ -62,7 +62,17 @@ De acuerdo con la IEC 60479, para aplicaciones biomédicas no invasivas como la 
 (Revisar)
 Con el fin de garantizar la seguridad del sujeto durante la medición de la respuesta galvánica cutánea (GSR), se realizó un análisis eléctrico basado en la norma IEC 60479, la cual describe los efectos fisiológicos de la corriente eléctrica sobre el cuerpo humano. De acuerdo con esta norma, es fundamental asegurar que la corriente que atraviesa el cuerpo se mantenga muy por debajo de los umbrales de percepción y riesgo fisiológico.
 
-Condición de peor caso
+\[
+I=\frac{V_{cc}-V_{ee}}{220\,k\Omega + R_{skin}}
+\]
+
+\[
+\begin{aligned}
+V_{cc} &= 6\,V \\
+V_{ee} &= 0\,V \\
+R_{skin} &= 0\,\Omega \; \text{a} \; 300\,k\Omega
+\end{aligned}
+\]
 
 Para un diseño conservador, se consideró el escenario más crítico posible, en el cual la resistencia de la piel del sujeto equivale a un cortocircuito eléctrico:
 
