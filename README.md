@@ -66,7 +66,7 @@ En este caso, se evaluarán dos casos de resistencia cutánea: El valor mas bajo
 Para esta evaluacion se hizo uso de la siguiente ecuación con las siguientes condiciones:
 
 $$
-I = \frac{V_{cc}-V_{ee}}{220\k\Omega + R_{skin}}
+I = \frac{V_{cc}-V_{ee}}{220k\Omega + R_{skin}}
 $$
 
 Donde se tienen en cuenta las siguientes condiciones:
