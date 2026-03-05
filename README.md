@@ -5,7 +5,23 @@ El estrés es una respuesta fisiológica del cuerpo ante situaciones que pueden 
 
 ## Preparación de la práctica
 ### Efectos de la corriente
-La cantidad de 
+La cantidad de corriente que fluye por el cuerpo genera efectos que podrían ocasionar la muerte, varios de estos efectos resultan del calentamiento de los tejidos y estimulación de músculos y nervios. Se necesitan pequeñas cantidades para causar efectos fisiológicos [3].
+
+### Tabla 1. Efectos estimados de corrientes alternas (CA) de 60 Hz sobre el cuerpo humano
+
+| Corriente (CA, 60 Hz) | Efecto fisiológico estimado                                                       |
+| --------------------: | --------------------------------------------------------------------------------- |
+|                  1 mA | Apenas perceptible                                                                |
+|                 16 mA | Corriente máxima que un adulto promedio puede percibir y “soltar” voluntariamente |
+|                 20 mA | Parálisis de los músculos respiratorios                                           |
+|                100 mA | Umbral de fibrilación ventricular                                                 |
+|                   2 A | Paro cardíaco y daño a órganos internos                                           |
+|               15–20 A | Activación del disyuntor eléctrico común (apertura del circuito)                  |
+
+* Valores aproximados para corriente alterna de 60 Hz, dependientes del tiempo de exposición y de las condiciones de contacto.
+† El valor corresponde al rango típico de disparo de disyuntores domésticos.
+
+
 ### Cálculos 
 ### Diseño del dispositivo vestible
 ## Pruebas y señal adquirida
@@ -19,3 +35,6 @@ La cantidad de
 Springer Science & Business Media, 2012.
 
 [2] M. A. G. Rivera and J. R. J. Cruz, “MEDICIÓN DE ESTRÉS a PARTIR DE LA FRECUENCIA CARDÍACA y LA RESPUESTA GALVÁNICA DE LA PIEL,” González Rivera | Pistas Educativas, Apr. 09, 2018.
+
+[3] R. M. Fish and L. A. Geddes, “Conduction of electrical current to and through the human body: a review,” Oct. 12, 2009. https://pmc.ncbi.nlm.nih.gov/articles/PMC2763825/
+
