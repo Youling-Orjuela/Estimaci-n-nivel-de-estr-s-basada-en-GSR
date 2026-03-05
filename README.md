@@ -81,7 +81,7 @@ $$
 
 Sabiendo esto, y previo a la verificación del criterio de seguridad, se evaluan ambos casos para determinar el valor de las corrientes y comparar lo valores para la estimación de la seguridad al paciente.
 
-### Caso 1: Rskin = 0Ω
+### Caso 1: $R_{skin} = 0\Omega$
 
 $$
 I=\frac{6}{220k\Omega}
@@ -95,7 +95,7 @@ $$
 I=27.3\mu A
 $$
 
-### Caso 2: Rskin = 300kΩ
+### Caso 2: $R_{skin} = = 300k\Omega$
 
 $$
 I=\frac{6}{220k\Omega + 300k\Omega}
