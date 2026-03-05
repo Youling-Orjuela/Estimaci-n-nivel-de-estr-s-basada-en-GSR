@@ -59,8 +59,11 @@ Implicaciones para el diseño del sistema GSR
 De acuerdo con la IEC 60479, para aplicaciones biomédicas no invasivas como la medición de la respuesta galvánica cutánea, es fundamental limitar tanto el voltaje como la corriente aplicada al sujeto. En el sistema desarrollado durante esta práctica, se garantiza que la corriente que atraviesa la piel del usuario se mantenga muy por debajo de los umbrales de percepción y riesgo fisiológico, asegurando condiciones de operación seguras y compatibles con los estándares internacionales.
 
 ### Cálculos 
-(Revisar)
 Con el fin de garantizar la seguridad del sujeto durante la medición de la respuesta galvánica cutánea (GSR), se realizó un análisis eléctrico basado en la norma IEC 60479, la cual describe los efectos fisiológicos de la corriente eléctrica sobre el cuerpo humano. De acuerdo con esta norma, es fundamental asegurar que la corriente que atraviesa el cuerpo se mantenga muy por debajo de los umbrales de percepción y riesgo fisiológico.
+
+En este caso, se evaluarán dos casos de resistencia cutánea: El valor mas bajo dentro del rango de resistencia cutánea (300k Ohmios) y el caso en el que la resistencia cutánea sea nula (0 Ohmios), evaluando esta condición como un corto circuito.
+
+Para esta evaluacion se hizo uso de la siguiente ecuación con las siguientes condiciones:
 
 \[
 I=\frac{V_{cc}-V_{ee}}{220\,k\Omega + R_{skin}}
@@ -77,40 +80,6 @@ V_{ee}=0\,V
 \[
 R_{skin}=0\,\Omega \; \text{a} \; 300\,k\Omega
 \]
-
-Para un diseño conservador, se consideró el escenario más crítico posible, en el cual la resistencia de la piel del sujeto equivale a un cortocircuito eléctrico:
-
-R_skin = 0 Ω
-
-En esta condición, la limitación de corriente depende exclusivamente de la resistencia fija del circuito.
-
-Análisis del circuito
-
-El sistema de medición opera con una fuente de alimentación continua comprendida entre:
-
-Vcc = 3.3 V a 5 V
-
-y emplea una resistencia limitadora de:
-
-R = 68 kΩ
-
-La corriente máxima que puede circular a través del sujeto se calcula utilizando la Ley de Ohm:
-
-I_max = Vcc / R
-
-Cálculo de la corriente máxima
-
-Para el peor caso (Vcc = 5 V):
-
-I_max = 5 V / 68 000 Ω
-
-I_max ≈ 73.5 µA
-
-Para Vcc = 3.3 V:
-
-I_max = 3.3 V / 68 000 Ω
-
-I_max ≈ 48.5 µA
 
 Verificación de seguridad
 
