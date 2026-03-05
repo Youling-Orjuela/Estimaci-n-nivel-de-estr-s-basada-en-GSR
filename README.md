@@ -75,7 +75,7 @@ $$
 \begin{aligned}
 V_{cc} &= 6V \\
 V_{ee} &= 0V \\
-R_{skin} &= 0\Omega \text{ & } 300k\Omega
+R_{skin} &= 0\Omega \text{ y } 300k\Omega
 \end{aligned}
 $$
 
