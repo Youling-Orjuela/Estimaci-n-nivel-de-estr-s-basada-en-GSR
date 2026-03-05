@@ -128,7 +128,14 @@ $I_{max} ≪ 1 mA$
 Por lo tanto, el sistema diseñado garantiza condiciones de operación seguras para el usuario, cumpliendo con los criterios de seguridad eléctrica establecidos por la norma IEC 60479, incluso bajo condiciones extremas de contacto eléctrico.
 
 ### Diseño del dispositivo vestible
+[![prototipo-1.jpg](https://i.postimg.cc/wMvsKB9z/prototipo-1.jpg)](https://postimg.cc/FdMK3NfC)
+[![prototipo-2.jpg](https://i.postimg.cc/h45XzcKH/prototipo-2.jpg)](https://postimg.cc/c6fxPqgm)
+[![prototipo-3.jpg](https://i.postimg.cc/2yb8FLCH/prototipo-3.jpg)](https://postimg.cc/4HGgXd7t)
+[![prototipo-4.jpg](https://i.postimg.cc/0NkkXB8w/prototipo-4.jpg)](https://postimg.cc/jD1YLvnx)
+
 ## Pruebas y señal adquirida
+[![estres.jpg](https://i.postimg.cc/ZR8X5cZR/estres.jpg)](https://postimg.cc/9RfLxyD5)
+[![nivel-de-estres.jpg](https://i.postimg.cc/C1g6XqDz/nivel-de-estres.jpg)](https://postimg.cc/67M0GTMX)
 ## Código ESP
 ## Código MATLAB
 ## Resultados de la práctica
