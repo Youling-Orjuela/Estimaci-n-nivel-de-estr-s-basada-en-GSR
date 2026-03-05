@@ -72,15 +72,11 @@ $$
 Donde se tienen en cuenta las siguientes condiciones:
 
 $$
-V_{cc} = 6\V
-$$
-
-$$
-V_{ee} = 0\V
-$$
-
-$$
-R_{skin} = 0\\Omega \; \text{a} \; 300\k\Omega
+\begin{aligned}
+V_{cc} &= 6V \\
+V_{ee} &= 0V \\
+R_{skin} &= 0\Omega \text{ & } 300k\Omega
+\end{aligned}
 $$
 
 Verificación de seguridad
