@@ -79,7 +79,40 @@ R_{skin} &= 0\Omega \text{ y } 300k\Omega
 \end{aligned}
 $$
 
-Verificación de seguridad
+Sabiendo esto, y previo a la verificación del criterio de seguridad, se evaluan ambos casos para determinar el valor de las corrientes y comparar lo valores para la estimación de la seguridad al paciente.
+
+### Caso 1: Rskin = 0Ω
+
+$$
+I=\frac{6}{220k\Omega}
+$$
+
+$$
+I=2.73\times10^{-5}A
+$$
+
+$$
+I=27.3\mu A
+$$
+
+### Caso 2: Rskin = 300kΩ
+
+$$
+I=\frac{6}{220k\Omega + 300k\Omega}
+$$
+
+$$
+I=\frac{6}{520k\Omega}
+$$
+
+$$
+I=1.15\times10^{-5}A
+$$
+
+$$
+I=11.5\mu A
+$$
+
 
 Los valores de corriente obtenidos se encuentran muy por debajo del límite máximo permitido de 1 mA, e incluso por debajo del umbral de percepción humana para corrientes eléctricas de baja frecuencia:
 
