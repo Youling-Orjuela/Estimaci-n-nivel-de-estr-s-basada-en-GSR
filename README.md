@@ -67,11 +67,15 @@ I=\frac{V_{cc}-V_{ee}}{220\,k\Omega + R_{skin}}
 \]
 
 \[
-\begin{aligned}
-V_{cc} &= 6\,V \\
-V_{ee} &= 0\,V \\
-R_{skin} &= 0\,\Omega \; \text{a} \; 300\,k\Omega
-\end{aligned}
+V_{cc}=6\,V
+\]
+
+\[
+V_{ee}=0\,V
+\]
+
+\[
+R_{skin}=0\,\Omega \; \text{a} \; 300\,k\Omega
 \]
 
 Para un diseño conservador, se consideró el escenario más crítico posible, en el cual la resistencia de la piel del sujeto equivale a un cortocircuito eléctrico:
