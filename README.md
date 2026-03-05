@@ -8,6 +8,8 @@ Definir lo del estrés [2]
 ### Cálculos 
 ### Diseño del dispositivo vestible
 ## Pruebas y señal adquirida
+## Código ESP
+## Código MATLAB
 ## Resultados de la práctica
 ## Análisis de resultados
 ## Conclusiones
