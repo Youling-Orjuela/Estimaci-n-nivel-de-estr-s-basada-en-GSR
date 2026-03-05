@@ -84,7 +84,7 @@ Sabiendo esto, y previo a la verificación del criterio de seguridad, se evaluan
 ### Caso 1: $R_{skin} = 0\Omega$
 
 $$
-I=\frac{6}{220k\Omega}
+I=\frac{6V}{220k\Omega}
 $$
 
 $$
@@ -95,14 +95,14 @@ $$
 I=27.3\mu A
 $$
 
-### Caso 2: $R_{skin} = = 300k\Omega$
+### Caso 2: $R_{skin} = 300k\Omega$
 
 $$
-I=\frac{6}{220k\Omega + 300k\Omega}
+I=\frac{6V}{220k\Omega + 300k\Omega}
 $$
 
 $$
-I=\frac{6}{520k\Omega}
+I=\frac{6V}{520k\Omega}
 $$
 
 $$
