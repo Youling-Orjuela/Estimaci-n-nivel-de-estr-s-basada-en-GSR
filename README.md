@@ -165,6 +165,13 @@ Sin embargo, el principio fisiológico relacionado con la medición de la activi
 **¿Cuáles serían las ventajas y desventajas de utilizar la GSR como indicador de estrés?:** La respuesta galvánica cutánea presenta varias ventajas como indicador de estrés, entre ellas que es una técnica no invasiva, fácil de implementar y sensible a cambios en la actividad del sistema nervioso simpático, lo que permite detectar variaciones fisiológicas asociadas a estímulos emocionales o cognitivos. Además, puede integrarse fácilmente en dispositivos vestibles para monitoreo continuo en diferentes entornos. Sin embargo, también presenta algunas limitaciones importantes. La GSR no es un indicador exclusivo del estrés, ya que también puede verse afectada por factores como la temperatura, el movimiento, la respiración o el contacto de los electrodos con la piel. Asimismo, existe una alta variabilidad entre individuos en los niveles basales de conductancia cutánea, lo que hace necesario realizar procesos de calibración para cada sujeto. Por esta razón, en aplicaciones más complejas suele complementarse con otras señales fisiológicas para obtener una estimación más confiable del nivel de estrés.
 
 ## Conclusiones
+
+En la presente práctica se desarrolló un sistema vestible capaz de medir y monitorear en tiempo real la respuesta galvánica cutánea (GSR) de un individuo sano, permitiendo observar las variaciones de la conductancia de la piel asociadas a la actividad del sistema nervioso autónomo. A partir de la señal adquirida fue posible identificar tanto el nivel basal de la señal como las respuestas transitorias generadas ante estímulos fisiológicos, como la respiración profunda, lo que evidencia la sensibilidad de la GSR frente a cambios en la activación simpática del organismo.
+
+Durante el proceso de calibración se establecieron valores mínimos y máximos de la señal, a partir de los cuales se definieron umbrales para clasificar el nivel de estrés en categorías de bajo, moderado y alto. Esto permitió que el sistema no solo capturara la señal fisiológica, sino que también interpretara sus variaciones para estimar el estado de activación del sujeto durante la medición.
+
+Los resultados obtenidos demuestran que la respuesta galvánica cutánea es una herramienta útil para detectar cambios en la activación fisiológica asociados a procesos como la concentración, el esfuerzo mental o estímulos emocionales. No obstante, también se evidenció que la señal puede verse influenciada por factores externos como el movimiento del sujeto, la presión de los electrodos o las condiciones de la piel, lo cual puede introducir variaciones adicionales en la medición.
+
 ## Bibliografía
 [1] W. Boucsein, Electrodermal Activity. Nueva York, NY, Estados Unidos:
 Springer Science & Business Media, 2012.
@@ -173,3 +180,8 @@ Springer Science & Business Media, 2012.
 
 [3] R. M. Fish and L. A. Geddes, “Conduction of electrical current to and through the human body: a review,” Oct. 12, 2009. https://pmc.ncbi.nlm.nih.gov/articles/PMC2763825/
 
+[4] M. L. Loggia, M. Juneau y C. M. Bushnell, “Autonomic responses to heat pain: Heart rate, skin conductance, and their relation to verbal ratings and stimulus intensity,” Pain, vol. 152, no. 3, pp. 592–598, 2011.https://doi.org/10.1016/j.pain.2010.11.032.
+
+[5] M. Breimhorst, S. Sandrock, M. Fechir, N. Hausenblas, C. Geber y F. Birklein, “Do intensity ratings and skin conductance responses reliably discriminate between different stimulus intensities in experimentally induced pain?” The Journal of Pain, vol. 12, no. 1, pp. 61–70, 2011. https://doi.org/10.1016/j.jpain.2010.04.012.
+
+[6] B. Figner y R. O. Murphy, “Using skin conductance in judgment and decision making research,” en A Handbook of Process Tracing Methods for Decision Research, M. Schulte-Mecklenbeck, A. Kuehberger y R. Ranyard, Eds. Nueva York, NY, Estados Unidos: Psychology Press, 2011, pp. 163–184.
