@@ -1,71 +1,67 @@
-# Estimación del nivel de estres basada en GSR (Respuesta Galvánica de la Piel)
+# Estimación del nivel de estrés basada en GSR (Respuesta Galvánica de la Piel)
 ## Introducción
-La actividad electrodérmica en un principio se definió como un término común para los fenómenos eléctricos de la piel, este término fue introducido por Johnson y Lubin en 1996.  Hoy en día esta respuesta electrodérmica esta relacionado con la respuesta de las glándulas sudoriparas y existen dos medidas principales la resistencia o conductancia que sería la parte exosomática y la detección de voltajes que es lo endosomática [1].
+La actividad electrodérmica (EDA) se definió inicialmente como un término general para describir los fenómenos eléctricos que ocurren en la piel; este concepto fue introducido por Johnson y Lubin en 1966. Actualmente, se sabe que esta respuesta está estrechamente relacionada con la actividad de las glándulas sudoríparas y puede medirse principalmente de dos formas: mediante la resistencia o conductancia de la piel, conocida como medición exosomática, y mediante la detección de potenciales eléctricos generados naturalmente por la piel, denominada medición endosomática [1].
 
-El estrés es una respuesta fisiológica del cuerpo ante situaciones que pueden pertubar el equilibrio físico y emocional, afectando la homeostasis fisiológica o psicológica que el organismo llega a percibir como nociva. Cuando una persona se estresa se activan síntomas como el aumento de la frecuencia cardíaca, los niveles de insulina, el sudor de la piel, en donde hay una dismiinución de resistencia eléctrica de la piel y la presión arterial [2]. 
+Uno de los fenómenos fisiológicos en los que la actividad electrodérmica tiene gran relevancia es el estrés. El estrés corresponde a una respuesta fisiológica del organismo ante situaciones que pueden perturbar el equilibrio físico o emocional, afectando la homeostasis del cuerpo. Cuando una persona experimenta estrés se activa el sistema nervioso autónomo, particularmente su rama simpática, lo que genera diferentes respuestas fisiológicas como el aumento de la frecuencia cardíaca, variaciones en los niveles hormonales, incremento de la sudoración y cambios en la presión arterial. En el caso de la piel, el aumento de la sudoración provoca una disminución en la resistencia eléctrica cutánea, lo que se refleja como un incremento en la conductancia de la piel [2].
 
-La respuesta galvánica de la piel (GSR), también conocida como actividad electrodérmica (EDA), se mide generalmente mediante dos electrodos colocados sobre la superficie de la piel para registrar los cambios en la conductancia relacionados a la actividad de las glándulas sudoríparas. Usualmente, los sitios más utilizados para estas mediciones son las palmas de las manos o las superficies volares de los dedos, debido a que presentan una alta densidad de glándulas sudoríparas y, por lo tanto, muestran una actividad electrodérmica más pronunciada [1].
+Debido a esta relación con la actividad del sistema nervioso autónomo, la respuesta galvánica de la piel (GSR), también conocida como actividad electrodérmica, se utiliza como un indicador fisiológico para evaluar cambios en el estado emocional o en el nivel de activación de una persona. Esta señal se mide generalmente mediante dos electrodos colocados sobre la superficie de la piel, los cuales permiten registrar variaciones en la conductancia asociadas con la actividad de las glándulas sudoríparas. Tradicionalmente, los sitios más utilizados para realizar estas mediciones son las palmas de las manos o las superficies volares de los dedos, ya que estas regiones presentan una alta densidad de glándulas sudoríparas y, por lo tanto, muestran una actividad electrodérmica más pronunciada [1].
 
-Sin embargo, en diversas aplicaciones de monitoreo fisiológico, especialmente en sistemas portátiles o de monitoreo continuo, se han explorado ubicaciones alternativas como la muñeca o el antebrazo distal. Estos sitios permiten integrar los electrodos en dispositivos tipo pulsera o reloj, facilitando el registro de la señal durante actividades cotidianas sin interferir significativamente con las tareas del usuario [1]. Además, la superficie volar de la muñeca es adecuada para el contacto con electrodos debido a que presenta menor presencia de vello y permite una fijación estable de los sensores [1].
+No obstante, en aplicaciones modernas de monitoreo fisiológico, especialmente en sistemas portátiles o de monitoreo continuo, se han explorado ubicaciones alternativas para la medición de la GSR, como la muñeca o el antebrazo distal. Estas zonas permiten integrar los electrodos en dispositivos tipo pulsera o reloj, facilitando la captura de la señal durante actividades cotidianas sin interferir significativamente con las tareas del usuario [1]. Además, la superficie volar de la muñeca presenta condiciones favorables para la colocación de sensores, como menor presencia de vello y mayor facilidad para lograr un contacto estable entre los electrodos y la piel.
 
-Aunque la amplitud de la señal electrodérmica obtenida en la muñeca puede ser menor que la registrada en las palmas o dedos, diversos estudios han demostrado que las mediciones en esta zona mantienen correlaciones aceptables con las obtenidas en los sitios estándar, lo que las convierte en una alternativa viable para sistemas de monitoreo ambulatorio y dispositivos portátiles de registro fisiológico [1]. Por esta razón, la captura de GSR en la muñeca resulta adecuada cuando se busca un compromiso entre calidad de la señal, comodidad del usuario y facilidad de implementación en dispositivos portátiles.
+Aunque la amplitud de la señal electrodérmica obtenida en la muñeca suele ser menor que la registrada en las palmas o los dedos, diversos estudios han demostrado que las mediciones en esta región mantienen correlaciones aceptables con las obtenidas en los sitios tradicionales. Por esta razón, la medición de la GSR en la muñeca se considera una alternativa viable para sistemas de monitoreo ambulatorio y dispositivos vestibles, ya que permite lograr un equilibrio entre la calidad de la señal, la comodidad del usuario y la facilidad de implementación en aplicaciones de monitoreo continuo [1].
 
 ## Preparación de la práctica
-### Efectos de la corriente
-La cantidad de corriente que fluye por el cuerpo genera efectos que podrían ocasionar la muerte, varios de estos efectos resultan del calentamiento de los tejidos y estimulación de músculos y nervios. Se necesitan pequeñas cantidades para causar efectos fisiológicos [3].
+## Efectos de la corriente eléctrica en el cuerpo humano
 
-### Tabla 1. Efectos estimados de corrientes alternas (CA) de 60 Hz sobre el cuerpo humano
+La norma **IEC 60479** describe los efectos fisiológicos producidos por el paso de corriente eléctrica a través del cuerpo humano. Estos efectos dependen principalmente de la magnitud de la corriente, el tipo de corriente (directa o alterna), la frecuencia, el tiempo de exposición y la trayectoria que sigue la corriente a través del organismo. Debido a estos factores, incluso corrientes relativamente pequeñas pueden producir efectos fisiológicos perceptibles o potencialmente peligrosos. Por esta razón, dicha norma es ampliamente utilizada como referencia para el diseño seguro de sistemas eléctricos y biomédicos [4].
 
-| Corriente (CA, 60 Hz) | Efecto fisiológico estimado                                                       |
-| --------------------: | --------------------------------------------------------------------------------- |
-|                  1 mA | Apenas perceptible                                                                |
-|                 16 mA | Corriente máxima que un adulto promedio puede percibir y “soltar” voluntariamente |
-|                 20 mA | Parálisis de los músculos respiratorios                                           |
-|                100 mA | Umbral de fibrilación ventricular                                                 |
-|                   2 A | Paro cardíaco y daño a órganos internos                                           |
-|               15–20 A | Activación del disyuntor eléctrico común (apertura del circuito)                  |
+En general, la cantidad de corriente que fluye por el cuerpo humano puede generar diversos efectos fisiológicos que van desde sensaciones apenas perceptibles hasta consecuencias graves como paro respiratorio, fibrilación ventricular o incluso la muerte. Muchos de estos efectos se deben al calentamiento de los tejidos biológicos y a la estimulación eléctrica de músculos y nervios, los cuales pueden alterarse con corrientes relativamente pequeñas [5].
 
-* Valores aproximados para corriente alterna de 60 Hz, dependientes del tiempo de exposición y de las condiciones de contacto.
-El valor corresponde al rango típico de disparo de disyuntores domésticos.
+### Corriente alterna (CA)
 
-La norma IEC 60479 establece los efectos fisiológicos producidos por el paso de corriente eléctrica a través del cuerpo humano, considerando variables como la magnitud de la corriente, el tipo de corriente (directa o alterna), la frecuencia y el tiempo de exposición. Esta norma es ampliamente utilizada como referencia para el diseño seguro de sistemas eléctricos y biomédicos.
+La corriente alterna, particularmente a frecuencias industriales de 50–60 Hz, se considera más peligrosa que la corriente directa para valores equivalentes de corriente. Esto se debe a su mayor capacidad para provocar contracciones musculares sostenidas, interferir con el control neuromuscular y alterar el ritmo cardíaco [4].
 
-**Corriente alterna (CA)**
+De acuerdo con la norma IEC 60479, los efectos fisiológicos de la corriente alterna pueden clasificarse en diferentes zonas de riesgo, dependiendo de la magnitud de la corriente y del tiempo de exposición.
 
-La corriente alterna, especialmente a frecuencias industriales (50–60 Hz), es considerada más peligrosa que la corriente directa para una misma magnitud de corriente, debido a su mayor capacidad de provocar contracciones musculares sostenidas y alteraciones en el ritmo cardíaco. Según la IEC 60479, los efectos fisiológicos de la CA se clasifican en cinco zonas:
+En una primera zona se encuentran corrientes muy pequeñas, generalmente imperceptibles o apenas perceptibles, que no generan efectos fisiológicos dañinos. A medida que la corriente aumenta, se entra en una segunda zona en la que la corriente es perceptible y puede generar sensaciones desagradables y contracciones musculares leves, aunque sin producir efectos fisiológicos permanentes.
 
-**Zona 1:** Corrientes de muy baja magnitud, generalmente imperceptibles o apenas perceptibles, sin efectos fisiológicos dañinos.
+En una tercera zona, la corriente puede provocar contracciones musculares intensas, dificultad respiratoria y pérdida del control voluntario de los músculos, lo que puede impedir que una persona suelte la fuente de corriente. Cuando la corriente alcanza valores mayores, se entra en una zona de riesgo significativo en la cual existe una alta probabilidad de fibrilación ventricular, paro respiratorio y otros efectos fisiológicos graves[4].
 
-**Zona 2:** Corrientes perceptibles que pueden causar sensaciones desagradables y contracciones musculares leves, pero sin efectos fisiológicos permanentes.
+Finalmente, corrientes extremadamente elevadas pueden producir paro cardíaco inmediato, quemaduras profundas y daños irreversibles en los tejidos y órganos internos.
 
-**Zona 3:** Corrientes capaces de producir contracciones musculares intensas, dificultad respiratoria y pérdida del control voluntario, sin llegar necesariamente a fibrilación ventricular.
+De manera aproximada, algunos valores típicos reportados para corriente alterna de 60 Hz en el cuerpo humano son:
 
-**Zona 4:** Corrientes potencialmente letales, asociadas con alta probabilidad de fibrilación ventricular, paro respiratorio y daño severo a órganos internos.
+| Corriente | Efecto fisiológico aproximado |
+|-----------|-------------------------------|
+| 1 mA | Apenas perceptible |
+| 10–16 mA | Corriente máxima que una persona puede soltar voluntariamente |
+| 20 mA | Posible parálisis de músculos respiratorios |
+| 100 mA | Umbral aproximado de fibrilación ventricular |
+| > 1 A | Paro cardíaco y daño severo en órganos |
 
-**Zona 5:** Corrientes extremadamente elevadas que causan paro cardíaco inmediato, quemaduras profundas y daños irreversibles en tejidos y órganos.
+Estos valores dependen del tiempo de exposición, condiciones de contacto y trayectoria de la corriente en el cuerpo [3].
 
-**Corriente directa (CD)**
+### Corriente directa (CD)
 
-La corriente directa presenta efectos fisiológicos diferentes a los de la corriente alterna. En general, para valores equivalentes de corriente, la CD es menos peligrosa que la CA a 50–60 Hz, aunque no está exenta de riesgos. Los principales efectos descritos por la norma incluyen:
+La corriente directa presenta efectos fisiológicos diferentes a los de la corriente alterna. En términos generales, para valores equivalentes de corriente, la corriente directa suele ser menos peligrosa que la corriente alterna a frecuencias de red, aunque igualmente puede producir efectos fisiológicos importantes [4].
 
-Sensación inicial de choque al inicio y al final de la aplicación de la corriente.
+La aplicación de corriente directa suele generar una sensación de choque al inicio y al final del contacto, debido a los cambios bruscos en la intensidad de corriente. A diferencia de la corriente alterna, la corriente directa tiene menor tendencia a producir contracciones musculares sostenidas, lo que reduce la probabilidad de que una persona quede atrapada sin poder soltar la fuente de corriente[4].
 
-Menor tendencia a producir contracciones musculares sostenidas, lo que reduce la probabilidad de incapacidad para soltar la fuente.
+No obstante, cuando la corriente alcanza valores elevados, también puede producir quemaduras térmicas, daño tisular y alteraciones en la función cardíaca. Además, exposiciones prolongadas a corriente directa pueden generar efectos electroquímicos en la interfaz piel–electrodo, fenómeno particularmente relevante en aplicaciones biomédicas donde existe contacto directo con la piel [5].
 
-A corrientes elevadas, puede generar quemaduras térmicas, daño tisular y alteraciones en la función cardíaca.
+### Implicaciones para el diseño del sistema de medición GSR
 
-Exposiciones prolongadas a CD pueden causar efectos electroquímicos en tejidos y electrodos, relevantes en aplicaciones biomédicas con contacto piel-electrodo.
+Considerando los lineamientos establecidos por la norma **IEC 60479**, en el diseño de sistemas biomédicos no invasivos como el utilizado para medir la respuesta galvánica cutánea (GSR) es fundamental limitar tanto el voltaje aplicado como la corriente que circula a través del cuerpo del usuario.
 
-Implicaciones para el diseño del sistema GSR
+En el sistema desarrollado durante esta práctica, se implementaron resistencias limitadoras de corriente que garantizan que la corriente que atraviesa la piel del sujeto se mantenga en el orden de los microamperios, muy por debajo de los umbrales de percepción y riesgo fisiológico descritos en la literatura. De esta manera, se asegura que el dispositivo opere bajo condiciones seguras y compatibles con los estándares internacionales de seguridad eléctrica, permitiendo la medición de la conductancia de la piel sin representar un riesgo para el usuario.
 
-De acuerdo con la IEC 60479, para aplicaciones biomédicas no invasivas como la medición de la respuesta galvánica cutánea, es fundamental limitar tanto el voltaje como la corriente aplicada al sujeto. En el sistema desarrollado durante esta práctica, se garantiza que la corriente que atraviesa la piel del usuario se mantenga muy por debajo de los umbrales de percepción y riesgo fisiológico, asegurando condiciones de operación seguras y compatibles con los estándares internacionales.
 
 ### Cálculos 
 Con el fin de garantizar la seguridad del sujeto durante la medición de la respuesta galvánica cutánea (GSR), se realizó un análisis eléctrico basado en la norma IEC 60479, la cual describe los efectos fisiológicos de la corriente eléctrica sobre el cuerpo humano. De acuerdo con esta norma, es fundamental asegurar que la corriente que atraviesa el cuerpo se mantenga muy por debajo de los umbrales de percepción y riesgo fisiológico.
 
 En este caso, se evaluarán dos casos de resistencia cutánea: El valor mas bajo dentro del rango de resistencia cutánea (300k Ohmios) y el caso en el que la resistencia cutánea sea nula (0 Ohmios), evaluando esta condición como un corto circuito.
 
-Para esta evaluacion se hizo uso de la siguiente ecuación con las siguientes condiciones:
+Para esta evaluacion se hizo uso de la siguiente ecuación:
 
 $$
 I = \frac{V_{cc}-V_{ee}}{220k\Omega + R_{skin}}
@@ -123,6 +119,8 @@ $I_{max} ≪ 1 mA$
 Por lo tanto, el sistema diseñado garantiza condiciones de operación seguras para el usuario, cumpliendo con los criterios de seguridad eléctrica establecidos por la norma IEC 60479, incluso bajo condiciones extremas de contacto eléctrico.
 
 ### Diseño del dispositivo vestible
+Como la región anatómica que se eligio fue la muñeca, se realizó una pulsera con electrodos para medir la respuesta galvánica de la piel y se agregó un chaleco con un compartimiento donde va todo el circuito para la adquisión de la señal por bluetooth.
+
 [![prototipo-1.jpg](https://i.postimg.cc/wMvsKB9z/prototipo-1.jpg)](https://postimg.cc/FdMK3NfC)
 [![prototipo-2.jpg](https://i.postimg.cc/h45XzcKH/prototipo-2.jpg)](https://postimg.cc/c6fxPqgm)
 [![prototipo-3.jpg](https://i.postimg.cc/2yb8FLCH/prototipo-3.jpg)](https://postimg.cc/4HGgXd7t)
@@ -490,7 +488,7 @@ Durante la práctica de laboratorio se desarrolló un sistema vestible capaz de 
 
 La gráfica muestra la señal de voltaje registrada durante un periodo de tiempo determinado por el usuario manualmente. En esta señal se observan variaciones graduales del nivel basal junto con incrementos súbitos de amplitud, característicos de la respuesta galvánica cutánea. En dicha gráfica se distinguen dos componentes principales de la señal GSR:
 
-**Componente tónica o estacionaria (SCL – Skin Conductance Level):** corresponde al nivel basal de la señal, el cual cambia lentamente con el tiempo.
+**Componente tónica o estacionaria (SCL – Skin Conductance Level):** corresponde al nivel basal de la señal, que cambia lentamente con el tiempo.
 
 **Componente fásica o transitoria (SCR – Skin Conductance Response):** se manifiesta como incrementos rápidos de la señal seguidos de una recuperación gradual.
 
@@ -531,8 +529,12 @@ Springer Science & Business Media, 2012.
 
 [3] R. M. Fish and L. A. Geddes, “Conduction of electrical current to and through the human body: a review,” Oct. 12, 2009. https://pmc.ncbi.nlm.nih.gov/articles/PMC2763825/
 
-[4] M. L. Loggia, M. Juneau y C. M. Bushnell, “Autonomic responses to heat pain: Heart rate, skin conductance, and their relation to verbal ratings and stimulus intensity,” Pain, vol. 152, no. 3, pp. 592–598, 2011.https://doi.org/10.1016/j.pain.2010.11.032.
+[4] IEC 60479-1. *Effects of current on human beings and livestock – Part 1: General aspects*. International Electrotechnical Commission.
 
-[5] M. Breimhorst, S. Sandrock, M. Fechir, N. Hausenblas, C. Geber y F. Birklein, “Do intensity ratings and skin conductance responses reliably discriminate between different stimulus intensities in experimentally induced pain?” The Journal of Pain, vol. 12, no. 1, pp. 61–70, 2011. https://doi.org/10.1016/j.jpain.2010.04.012.
+[5] J. G. Webster. *Medical Instrumentation: Application and Design*. 4th ed. Wiley, 2009.
 
-[6] B. Figner y R. O. Murphy, “Using skin conductance in judgment and decision making research,” en A Handbook of Process Tracing Methods for Decision Research, M. Schulte-Mecklenbeck, A. Kuehberger y R. Ranyard, Eds. Nueva York, NY, Estados Unidos: Psychology Press, 2011, pp. 163–184.
+[6] M. L. Loggia, M. Juneau y C. M. Bushnell, “Autonomic responses to heat pain: Heart rate, skin conductance, and their relation to verbal ratings and stimulus intensity,” Pain, vol. 152, no. 3, pp. 592–598, 2011.https://doi.org/10.1016/j.pain.2010.11.032.
+
+[7] M. Breimhorst, S. Sandrock, M. Fechir, N. Hausenblas, C. Geber y F. Birklein, “Do intensity ratings and skin conductance responses reliably discriminate between different stimulus intensities in experimentally induced pain?” The Journal of Pain, vol. 12, no. 1, pp. 61–70, 2011. https://doi.org/10.1016/j.jpain.2010.04.012.
+
+[8] B. Figner y R. O. Murphy, “Using skin conductance in judgment and decision making research,” en A Handbook of Process Tracing Methods for Decision Research, M. Schulte-Mecklenbeck, A. Kuehberger y R. Ranyard, Eds. Nueva York, NY, Estados Unidos: Psychology Press, 2011, pp. 163–184.
