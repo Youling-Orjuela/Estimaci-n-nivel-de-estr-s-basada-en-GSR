@@ -158,7 +158,7 @@ Desde el punto de vista práctico, el sistema presenta características favorabl
 
 Por otro lado, su aplicación en el contexto neonatal es mas complicado de introducir, ya que existen diversos factores que dificultan esta tarea. En primer lugar, la piel de los recién nacidos tiene propiedades fisiológicas diferentes (como grosor o actividad de las glándulas sudoríparas), lo que puede modificar la amplitud y dinámica de la señal capturada. Por otro lado, la colocación de los electrodos en la piel de los bebés debe ser realizada de manera cuidadosa para evitar irritación o lesiones cutaneas.
 
-Sin embargo, el principio fisiologico relacionado con la medicion de la actividad electrodermica sigue aplicando de la misma forma, ya que la EDA esta directamente relacionada con la activación del sistema nervioso simpático, el cual responde también a estimulos de estres o incomodidad en los neonatos. 
+Sin embargo, el principio fisiológico relacionado con la medición de la actividad electrodérmica sigue aplicando de la misma forma, ya que la EDA esta directamente relacionada con la activación del sistema nervioso simpático, el cual responde también a estimulos de estres o incomodidad en los neonatos. 
 
 ## Conclusiones
 ## Bibliografía
