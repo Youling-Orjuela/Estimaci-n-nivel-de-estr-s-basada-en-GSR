@@ -132,8 +132,359 @@ Por lo tanto, el sistema diseñado garantiza condiciones de operación seguras p
 [![estres.jpg](https://i.postimg.cc/ZR8X5cZR/estres.jpg)](https://postimg.cc/9RfLxyD5)
 [![nivel-de-estres.jpg](https://i.postimg.cc/C1g6XqDz/nivel-de-estres.jpg)](https://postimg.cc/67M0GTMX)
 ## Código ESP
-## Código MATLAB
+```
+C++
+#include "BluetoothSerial.h"
+BluetoothSerial SerialBT;
 
+const char* BT_NAME = "ESP32_GSR";
+```
+Se importa la librería BluetoothSerial para usar Bluetooth clásico (SPP) en ESP32.
+SerialBT actúa como un “Serial” pero inalámbrico.
+BT_NAME es el nombre con el que aparece el ESP32 al emparejar.
+```
+const int adcPin = 34;
+const int fs = 25;
+const int dt_ms = 1000 / fs;
+const int Navg = 20;
+```
+adcPin: pin analógico donde se lee el voltaje del circuito GSR (GPIO34 recomendado).
+fs: frecuencia de muestreo (25 Hz).
+dt_ms: tiempo entre muestras para mantener esa frecuencia.
+Navg: número de lecturas ADC promediadas por muestra para reducir ruido.
+```
+float Vbase = NAN;
+float Vmin  = NAN;
+float Vmax  = NAN;
+
+float Th1 = NAN;
+float Th2 = NAN;
+
+double sumBase = 0;
+uint32_t nBase = 0;
+
+float H = 0.01;
+int level = 0;
+```
+Vbase: voltaje promedio en reposo.
+Vmin, Vmax: valores mínimo y máximo durante respiración profunda.
+Th1, Th2: umbrales para definir el nivel de estrés.
+sumBase y nBase: se usan para calcular el promedio Vbase.
+H: histéresis (10 mV) para evitar que el nivel cambie por ruido.
+level: nivel actual (0=LOW, 1=MED, 2=HIGH).
+```
+int readAdcAvg() {
+  long acc = 0;
+  for (int i = 0; i < Navg; i++) {
+    acc += analogRead(adcPin);
+    delayMicroseconds(200);
+  }
+  return (int)(acc / Navg);
+}
+```
+Se toman Navg lecturas del ADC y se promedian. Esto mejora estabilidad de la señal sin necesidad de suavizar en MATLAB.
+```
+float rawToVolt(int raw) {
+  return (raw / 4095.0f) * 3.3f;
+}
+```
+Convierte el ADC de 12 bits (0–4095) a voltaje aproximado (0–3.3V). Así MATLAB recibe valores en voltios.
+```
+const char* levelStr(int L) {
+  if (L == 0) return "LOW";
+  if (L == 1) return "MED";
+  return "HIGH";
+}
+```
+Convierte el nivel numérico a texto para enviar por Bluetooth una etiqueta legible.
+```
+void computeThresholds() {
+  float d = Vmax - Vbase;
+  if (d < 0.02f) d = 0.02f;
+  Th1 = Vbase + 0.25f * d;
+  Th2 = Vbase + 0.60f * d;
+}
+```
+Calcula el rango d = Vmax - Vbase.
+Si d es muy pequeño, se fuerza un mínimo (0.02 V) para evitar umbrales inútiles.
+Umbrales:
+Th1: inicio de nivel moderado
+Th2: inicio de nivel alto
+```
+int classifyWithHysteresis(float v, int prev) {
+  if (prev == 0 && v > Th1 + H) return 1;
+  if (prev == 1 && v > Th2 + H) return 2;
+
+  if (prev == 2 && v < Th2 - H) return 1;
+  if (prev == 1 && v < Th1 - H) return 0;
+
+  return prev;
+}
+```
+El nivel sube o baja solo si el voltaje supera el umbral con un margen ±H. Esto evita que el estado cambie rápidamente por ruido cuando el voltaje está cerca del umbral.
+```
+void startCalibration() {
+  st = CAL_REST;
+  t_state0 = millis();
+  sumBase = 0;
+  nBase = 0;
+  Vmin =  10;
+  Vmax = -10;
+  Vbase = NAN;
+  Th1 = NAN;
+  Th2 = NAN;
+  level = 0;
+
+  SerialBT.println("CAL,REST,START");
+}
+```
+Reinicia variables y cambia a CAL_REST. Además envía un mensaje para que MATLAB sepa que inició la calibración.
+```
+void setup() {
+  Serial.begin(115200);
+  analogReadResolution(12);
+
+  if (!SerialBT.begin(BT_NAME)) {
+    while (true) delay(1000);
+  }
+
+  st = IDLE;
+  SerialBT.println("READY,SEND_C_TO_CALIBRATE");
+}
+```
+Inicializa el ADC en 12 bits.
+Inicia Bluetooth con el nombre BT_NAME.
+Queda en IDLE y avisa que está listo para recibir C.
+```
+void loop() {
+  while (SerialBT.available()) {
+    char c = (char)SerialBT.read();
+    if (c == 'C' || c == 'c') startCalibration();
+  }
+
+  int raw = readAdcAvg();
+  float v = rawToVolt(raw);
+  uint32_t t = millis();
+```
+Si llega C desde el PC, comienza calibración.
+Luego mide raw, lo convierte a v y toma timestamp t.
+```
+if (st == IDLE) {
+    SerialBT.printf("%lu,%d,%.4f,IDLE\n", (unsigned long)t, raw, v);
+    delay(dt_ms);
+    return;
+  }
+```
+Envía datos en formato CSV sin clasificar estrés. Útil para verificar que el sensor funciona antes de calibrar.
+```
+if (st == CAL_REST) {
+    sumBase += v;
+    nBase++;
+
+    if (t - t_state0 > 35000) {
+      Vbase = (float)(sumBase / (double)nBase);
+      st = CAL_BREATH;
+      t_state0 = t;
+      SerialBT.printf("CAL,REST,DONE,%.4f\n", Vbase);
+      SerialBT.println("CAL,BREATH,START");
+    }
+
+    SerialBT.printf("%lu,%d,%.4f,CAL_REST\n", (unsigned long)t, raw, v);
+    delay(dt_ms);
+    return;
+  }
+```
+Durante 35 s suma voltajes para obtener Vbase.
+Al terminar, cambia a CAL_BREATH y avisa a MATLAB.
+```
+if (st == CAL_BREATH) {
+    if (v < Vmin) Vmin = v;
+    if (v > Vmax) Vmax = v;
+
+    if (t - t_state0 > 50000) {
+      computeThresholds();
+      st = RUN;
+      SerialBT.printf("CAL,BREATH,DONE,Vmin=%.4f,Vmax=%.4f\n", Vmin, Vmax);
+      SerialBT.printf("TH,Th1=%.4f,Th2=%.4f\n", Th1, Th2);
+    }
+
+    SerialBT.printf("%lu,%d,%.4f,CAL_BREATH\n", (unsigned long)t, raw, v);
+    delay(dt_ms);
+    return;
+  }
+```
+Durante respiración profunda se actualizan Vmin y Vmax.
+Después de 50 s se calculan umbrales y pasa a RUN.
+Se envían mensajes CAL...DONE y TH... para registrar umbrales.
+```
+if (st == RUN) {
+    level = classifyWithHysteresis(v, level);
+    const char* tag = levelStr(level);
+    SerialBT.printf("%lu,%d,%.4f,%s\n", (unsigned long)t, raw, v, tag);
+
+    delay(dt_ms);
+    return;
+  }
+}
+```
+Clasifica el voltaje actual en LOW/MED/HIGH usando umbrales e histéresis.
+Envía el voltaje junto con la etiqueta (nivel de estrés).
+
+## Código MATLAB
+```
+MatLab
+clear; clc; close all
+port = "COM6";
+baud = 115200;
+
+s = serialport(port, baud);
+flush(s);
+s.Timeout = 0.1;
+```
+clear: borra variables del workspace.
+clc: limpia la consola.
+close all: cierra todas las figuras abiertas.
+Esto asegura que la ejecución empiece “desde cero”.
+port y baud definen el puerto COM y la velocidad (debe coincidir con el emisor).
+serialport(port, baud) crea el objeto de comunicación s.
+flush(s) limpia el buffer del puerto (descarta datos viejos acumulados).
+s.Timeout = 0.1 define cuánto espera una lectura antes de “rendirse” (aquí es corto porque no se usa readline, se lee el buffer por bytes).
+```
+writeline(s, "C");
+disp("Calibración iniciada: 35s reposo + 50s respiración...");
+```
+writeline(s, "C") envía el carácter C por serial hacia el ESP32.
+En el código Arduino, ese C dispara startCalibration() y comienza la secuencia de calibración.
+disp(...) solo imprime un mensaje informativo en la consola de MATLAB.
+```
+figure; grid on;
+al = animatedline('LineWidth',1.2);
+xlabel('Tiempo (s)'); ylabel('Voltaje (V)');
+title('GSR - Voltaje en tiempo real');
+ylim([0 3.3]);
+```
+figure; grid on;
+al = animatedline('LineWidth',1.2);
+xlabel('Tiempo (s)'); ylabel('Voltaje (V)');
+title('GSR - Voltaje en tiempo real');
+ylim([0 3.3]);
+```
+t0 = [];
+lastLevel = "";
+lastDraw = tic;
+
+disp("Leyendo...");
+```
+t0: guarda el primer timestamp recibido para convertir el tiempo a “tiempo transcurrido” (comienza en 0).
+lastLevel: guarda el último nivel (LOW/MED/HIGH) para imprimir en consola solo cuando cambie.
+lastDraw = tic: inicia un cronómetro interno para controlar cada cuánto se actualiza la figura.
+disp("Leyendo..."): mensaje informativo.
+```
+while ishandle(al)
+```
+Este bucle se ejecuta continuamente mientras la gráfica esté abierta.
+Si cierras la figura, ishandle(al) deja de ser verdadero y el programa termina.
+```
+nAvail = s.NumBytesAvailable;
+    if nAvail == 0
+        pause(0.01);
+        continue
+    end
+```
+s.NumBytesAvailable devuelve cuántos bytes hay esperando en el buffer del puerto.
+Si es 0, no hay nada que leer → se hace pause(0.01) para no saturar CPU, y continue vuelve al inicio del bucle.
+Esto evita warnings típicos de “timeout” y mantiene el programa estable.
+```
+raw = read(s, nAvail, "char");
+    lines = splitlines(string(raw));
+```
+read(s, nAvail, "char") lee todo lo que esté disponible en ese instante.
+Luego se convierte a string y se parte por saltos de línea con splitlines.
+Esto es más robusto y rápido que readline(), porque no depende de esperar una línea completa.
+```
+for i = 1:numel(lines)
+        line = strtrim(lines(i));
+        if line == "", continue; end
+```
+Recorre cada línea recibida.
+strtrim elimina espacios/saltos al inicio y final.
+Si la línea queda vacía, se ignora.
+```
+if startsWith(line, "CAL") || startsWith(line, "TH") || startsWith(line, "READY")
+            disp(line);
+            continue
+        end
+```
+El ESP32 además de datos numéricos envía mensajes tipo:
+READY,...
+CAL,REST,...
+CAL,BREATH,...
+TH,Th1=...,Th2=...
+Si detecta que la línea es un mensaje de estado (CAL, TH, READY), lo imprime en consola y no intenta parsearlo como dato numérico.
+```
+parts = split(line, ",");
+        if numel(parts) ~= 4
+            continue
+        end
+```
+El formato esperado de datos es:
+timestamp_ms, raw_adc, voltaje, nivel
+Por eso:
+Se separa por coma.
+Si no hay exactamente 4 elementos, se descarta (evita errores por líneas incompletas o ruido).
+```
+t_ms = str2double(parts(1));
+        v    = str2double(parts(3));
+        lvl  = strtrim(parts(4));
+
+        if isnan(t_ms) || isnan(v)
+            continue
+        end
+```
+t_ms toma el timestamp en milisegundos (campo 1).
+v toma el voltaje en voltios (campo 3).
+lvl toma el nivel (LOW/MED/HIGH o IDLE/CAL_REST/CAL_BREATH, según el estado que mande el ESP32).
+Si t_ms o v no se pueden convertir a número (NaN), la línea se ignora.
+```
+if isempty(t0)
+            t0 = t_ms;
+        end
+        t_s = (t_ms - t0)/1000;
+```
+La primera vez que llega un dato, se guarda t0 (origen del tiempo).
+Cada nuevo tiempo se convierte a “tiempo transcurrido”:
+```
+addpoints(al, t_s, v);
+```
+Añade un punto (tiempo, voltaje) a la línea animada sin tener que redibujar todo desde cero.
+```
+if lvl ~= lastLevel
+            lastLevel = lvl;
+            if lvl == "LOW"
+                disp("Nivel: BAJO");
+            elseif lvl == "MED"
+                disp("Nivel: MODERADO");
+            elseif lvl == "HIGH"
+                disp("Nivel: ALTO");
+            else
+                disp("Nivel: " + lvl);
+            end
+        end
+```
+Se compara el lvl actual con lastLevel.
+Solo si cambió, imprime en consola.
+Traduce LOW/MED/HIGH a español (BAJO/MODERADO/ALTO).
+Si llega cualquier otra etiqueta, la imprime tal cual (por ejemplo IDLE, CAL_REST, CAL_BREATH).
+```
+if toc(lastDraw) > 0.03
+        drawnow nocallbacks
+        lastDraw = tic;
+    end
+```
+toc(lastDraw) mide cuánto tiempo pasó desde el último refresco.
+Si pasó más de 0.03 s (~33 ms), actualiza la figura.
+drawnow nocallbacks refresca la gráfica de forma eficiente y reduce “delay”.
+Luego reinicia el cronómetro con lastDraw = tic;.
 ## Resultados de la práctica
 Durante la práctica de laboratorio se desarrolló un sistema vestible capaz de capturar en tiempo real las variaciones de la respuesta galvánica cutánea (GSR) utilizando electrodos colocados en la muñeca del sujeto de prueba, de manera inalámbrica por medio de una ESP32. La señal adquirida fue transmitida a un computador para su visualización y análisis, permitiendo observar la evolución temporal del voltaje asociado a la conductancia de la piel.
 
