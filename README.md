@@ -26,30 +26,25 @@ La cantidad de corriente que fluye por el cuerpo genera efectos que podrían oca
 |               15–20 A | Activación del disyuntor eléctrico común (apertura del circuito)                  |
 
 * Valores aproximados para corriente alterna de 60 Hz, dependientes del tiempo de exposición y de las condiciones de contacto.
-† El valor corresponde al rango típico de disparo de disyuntores domésticos.
-
-
-
-(Revisar)
-(Norma IEC 60479, ítems 1–5)
+El valor corresponde al rango típico de disparo de disyuntores domésticos.
 
 La norma IEC 60479 establece los efectos fisiológicos producidos por el paso de corriente eléctrica a través del cuerpo humano, considerando variables como la magnitud de la corriente, el tipo de corriente (directa o alterna), la frecuencia y el tiempo de exposición. Esta norma es ampliamente utilizada como referencia para el diseño seguro de sistemas eléctricos y biomédicos.
 
-Corriente alterna (CA)
+**Corriente alterna (CA)**
 
 La corriente alterna, especialmente a frecuencias industriales (50–60 Hz), es considerada más peligrosa que la corriente directa para una misma magnitud de corriente, debido a su mayor capacidad de provocar contracciones musculares sostenidas y alteraciones en el ritmo cardíaco. Según la IEC 60479, los efectos fisiológicos de la CA se clasifican en cinco zonas:
 
-Zona 1: Corrientes de muy baja magnitud, generalmente imperceptibles o apenas perceptibles, sin efectos fisiológicos dañinos.
+**Zona 1:** Corrientes de muy baja magnitud, generalmente imperceptibles o apenas perceptibles, sin efectos fisiológicos dañinos.
 
-Zona 2: Corrientes perceptibles que pueden causar sensaciones desagradables y contracciones musculares leves, pero sin efectos fisiológicos permanentes.
+**Zona 2:** Corrientes perceptibles que pueden causar sensaciones desagradables y contracciones musculares leves, pero sin efectos fisiológicos permanentes.
 
-Zona 3: Corrientes capaces de producir contracciones musculares intensas, dificultad respiratoria y pérdida del control voluntario, sin llegar necesariamente a fibrilación ventricular.
+**Zona 3:** Corrientes capaces de producir contracciones musculares intensas, dificultad respiratoria y pérdida del control voluntario, sin llegar necesariamente a fibrilación ventricular.
 
-Zona 4: Corrientes potencialmente letales, asociadas con alta probabilidad de fibrilación ventricular, paro respiratorio y daño severo a órganos internos.
+**Zona 4:** Corrientes potencialmente letales, asociadas con alta probabilidad de fibrilación ventricular, paro respiratorio y daño severo a órganos internos.
 
-Zona 5: Corrientes extremadamente elevadas que causan paro cardíaco inmediato, quemaduras profundas y daños irreversibles en tejidos y órganos.
+**Zona 5:** Corrientes extremadamente elevadas que causan paro cardíaco inmediato, quemaduras profundas y daños irreversibles en tejidos y órganos.
 
-Corriente directa (CD)
+**Corriente directa (CD)**
 
 La corriente directa presenta efectos fisiológicos diferentes a los de la corriente alterna. En general, para valores equivalentes de corriente, la CD es menos peligrosa que la CA a 50–60 Hz, aunque no está exenta de riesgos. Los principales efectos descritos por la norma incluyen:
 
@@ -138,14 +133,15 @@ Por lo tanto, el sistema diseñado garantiza condiciones de operación seguras p
 [![nivel-de-estres.jpg](https://i.postimg.cc/C1g6XqDz/nivel-de-estres.jpg)](https://postimg.cc/67M0GTMX)
 ## Código ESP
 ## Código MATLAB
+
 ## Resultados de la práctica
 Durante la práctica de laboratorio se desarrolló un sistema vestible capaz de capturar en tiempo real las variaciones de la respuesta galvánica cutánea (GSR) utilizando electrodos colocados en la muñeca del sujeto de prueba, de manera inalámbrica por medio de una ESP32. La señal adquirida fue transmitida a un computador para su visualización y análisis, permitiendo observar la evolución temporal del voltaje asociado a la conductancia de la piel.
 
 La gráfica muestra la señal de voltaje registrada durante un periodo de tiempo determinado por el usuario manualmente. En esta señal se observan variaciones graduales del nivel basal junto con incrementos súbitos de amplitud, característicos de la respuesta galvánica cutánea. En dicha gráfica se distinguen dos componentes principales de la señal GSR:
 
-Componente tónica o estacionaria (SCL – Skin Conductance Level): corresponde al nivel basal de la señal, el cual cambia lentamente con el tiempo.
+**Componente tónica o estacionaria (SCL – Skin Conductance Level):** corresponde al nivel basal de la señal, el cual cambia lentamente con el tiempo.
 
-Componente fásica o transitoria (SCR – Skin Conductance Response): se manifiesta como incrementos rápidos de la señal seguidos de una recuperación gradual.
+**Componente fásica o transitoria (SCR – Skin Conductance Response):** se manifiesta como incrementos rápidos de la señal seguidos de una recuperación gradual.
 
 Este comportamiento coincide con lo reportado en la literatura sobre actividad electrodérmica, donde las respuestas SCR aparecen como aumentos rápidos en la conductancia cutánea seguidos de un retorno más lento hacia el nivel basal.
 
@@ -154,6 +150,7 @@ Previo a la estimación del nivel de estrés se realizó un proceso de calibraci
 A partir de los valores registrados como voltaje promedio, se estimaban dos umbrales, los cuales delimitarían el nivel de estrés al cual esta expuesto el sujeto de prueba. Para esto, se clasificó en tres categorías de estrés: Bajo, cuando hay valores de voltaje inferiores a Th1, moderado, cuando hay valores entre Th1 y Th2, y alto, cuando hay valores superiores a Th2.
 
 Durante la ejecución de la prueba se registraron diferentes niveles de estrés, evidenciados por el sistema mediante mensajes en consola tales como BAJO, MODERADO y ALTO. Estas variaciones coinciden con los cambios observados en la señal GSR, donde los picos de voltaje corresponden a incrementos temporales de la conductancia cutánea asociados a activación del sistema nervioso autónomo.
+
 ## Análisis de resultados
 ## Conclusiones
 ## Bibliografía
