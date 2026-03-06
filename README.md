@@ -139,6 +139,21 @@ Por lo tanto, el sistema diseñado garantiza condiciones de operación seguras p
 ## Código ESP
 ## Código MATLAB
 ## Resultados de la práctica
+Durante la práctica de laboratorio se desarrolló un sistema vestible capaz de capturar en tiempo real las variaciones de la respuesta galvánica cutánea (GSR) utilizando electrodos colocados en la muñeca del sujeto de prueba, de manera inalámbrica por medio de una ESP32. La señal adquirida fue transmitida a un computador para su visualización y análisis, permitiendo observar la evolución temporal del voltaje asociado a la conductancia de la piel.
+
+La gráfica muestra la señal de voltaje registrada durante un periodo de tiempo determinado por el usuario manualmente. En esta señal se observan variaciones graduales del nivel basal junto con incrementos súbitos de amplitud, característicos de la respuesta galvánica cutánea. En dicha gráfica se distinguen dos componentes principales de la señal GSR:
+
+Componente tónica o estacionaria (SCL – Skin Conductance Level): corresponde al nivel basal de la señal, el cual cambia lentamente con el tiempo.
+
+Componente fásica o transitoria (SCR – Skin Conductance Response): se manifiesta como incrementos rápidos de la señal seguidos de una recuperación gradual.
+
+Este comportamiento coincide con lo reportado en la literatura sobre actividad electrodérmica, donde las respuestas SCR aparecen como aumentos rápidos en la conductancia cutánea seguidos de un retorno más lento hacia el nivel basal.
+
+Previo a la estimación del nivel de estrés se realizó un proceso de calibración dividido en dos etapas: El periodo de reposo (REST), en el que el sujeto permaneció en reposo durante aproximadamente 35 s para registrar el nivel basal de la señal y tomar un valor promedio de voltaje para umbralizar, y la segunda etapa que fue, el periodo de respiración profunda (BREATH), en el cual, el sujeto de prueba realizó una inspiración profunda seguida de una exhalación lenta, lo cual generó un incremento en la señal GSR.
+
+A partir de los valores registrados como voltaje promedio, se estimaban dos umbrales, los cuales delimitarían el nivel de estrés al cual esta expuesto el sujeto de prueba. Para esto, se clasificó en tres categorías de estrés: Bajo, cuando hay valores de voltaje inferiores a Th1, moderado, cuando hay valores entre Th1 y Th2, y alto, cuando hay valores superiores a Th2.
+
+Durante la ejecución de la prueba se registraron diferentes niveles de estrés, evidenciados por el sistema mediante mensajes en consola tales como BAJO, MODERADO y ALTO. Estas variaciones coinciden con los cambios observados en la señal GSR, donde los picos de voltaje corresponden a incrementos temporales de la conductancia cutánea asociados a activación del sistema nervioso autónomo.
 ## Análisis de resultados
 ## Conclusiones
 ## Bibliografía
