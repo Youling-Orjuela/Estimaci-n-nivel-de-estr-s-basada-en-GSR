@@ -152,6 +152,14 @@ A partir de los valores registrados como voltaje promedio, se estimaban dos umbr
 Durante la ejecución de la prueba se registraron diferentes niveles de estrés, evidenciados por el sistema mediante mensajes en consola tales como BAJO, MODERADO y ALTO. Estas variaciones coinciden con los cambios observados en la señal GSR, donde los picos de voltaje corresponden a incrementos temporales de la conductancia cutánea asociados a activación del sistema nervioso autónomo.
 
 ## Análisis de resultados
+El sistema desarrollado demostró ser eficaz a la hora de capturar en tiempo real las variaciones de la respuesta galvánica cutánea (GSR) mediante un dispositivo vestible colocado en la muñeca del sujeto. A partir de la señal adquirida fue posible identificar tanto el nivel basal de conductancia cutánea (SCL) como las respuestas transitorias (SCR) asociadas a estímulos fisiológicos, como la respiración profunda realizada durante la etapa de calibración. Durante la medición se observaron incrementos rápidos en el voltaje de la señal, seguidos de una disminución gradual hacia el nivel basal, comportamiento característico de la actividad electrodérmica. A partir de los valores mínimo y máximo obtenidos durante la calibración, se establecieron umbrales que permitieron clasificar el estado del sujeto en niveles de estrés bajo, moderado y alto. 
+
+Desde el punto de vista práctico, el sistema presenta características favorables para su uso en entornos rutinarios como oficinas, aulas de clase o el hogar, ya que el dispositivo vestible permite monitoreo continuo sin restringir significativamente el movimiento del usuario. Además, la visualización en tiempo real facilita la interpretación inmediata del estado fisiológico del sujeto. Sin embargo, la señal GSR puede verse afectada por factores externos como el movimiento, cambios en la temperatura de la piel o variaciones en el contacto de los electrodos, lo que puede introducir ruido o fluctuaciones en la medición.
+
+Por otro lado, su aplicación en el contexto neonatal es mas complicado de introducir, ya que existen diversos factores que dificultan esta tarea. En primer lugar, la piel de los recién nacidos tiene propiedades fisiológicas diferentes (como grosor o actividad de las glándulas sudoríparas), lo que puede modificar la amplitud y dinámica de la señal capturada. Por otro lado, la colocación de los electrodos en la piel de los bebés debe ser realizada de manera cuidadosa para evitar irritación o lesiones cutaneas.
+
+Sin embargo, el principio fisiologico relacionado con la medicion de la actividad electrodermica sigue aplicando de la misma forma, ya que la EDA esta directamente relacionada con la activación del sistema nervioso simpático, el cual responde también a estimulos de estres o incomodidad en los neonatos. 
+
 ## Conclusiones
 ## Bibliografía
 [1] W. Boucsein, Electrodermal Activity. Nueva York, NY, Estados Unidos:
