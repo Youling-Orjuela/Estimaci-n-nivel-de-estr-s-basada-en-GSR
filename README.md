@@ -1,4 +1,4 @@
-# Estimación del nivel de estres basada en GSR (Respuesta Galvanica de la Piel)
+# Estimación del nivel de estres basada en GSR (Respuesta Galvánica de la Piel)
 ## Introducción
 La actividad electrodérmica en un principio se definió como un término común para los fenómenos eléctricos de la piel, este término fue introducido por Johnson y Lubin en 1996.  Hoy en día esta respuesta electrodérmica esta relacionado con la respuesta de las glándulas sudoriparas y existen dos medidas principales la resistencia o conductancia que sería la parte exosomática y la detección de voltajes que es lo endosomática [1].
 
